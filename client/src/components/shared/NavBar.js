@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import eclipse from '../../img/ellipse.png'
+import eclipse from '../../img/user.png'
 import "../../components/pages/myStyles.css"
 
 export default class NavBar extends Component {

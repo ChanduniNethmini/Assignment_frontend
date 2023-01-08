@@ -1,102 +1,140 @@
-.topic{
-font-family: 'Satoshi';
-font-size: 36px;
-font-weight: 900;
-line-height: 49px;
-letter-spacing: 0.15em;
-text-align: left;
+.topic {
+  font-family: "Satoshi";
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 49px;
+  letter-spacing: 0.15em;
+  text-align: left;
 }
-.subtopic{
-    font-family: 'Satoshi';
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: 0.08em;
-    text-align: left;  
+.subtopic {
+  font-family: "Satoshi";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.08em;
+  text-align: left;
 }
-.image1{
-height: 25.900001525878906px;
-width: 14.800000190734863px;
-left: 11.0999755859375px;
-top: 5.550018310546875px;
-border-radius: 0px;
-  
+.image1 {
+  height: 25.900001525878906px;
+  width: 14.800000190734863px;
+  left: 11.0999755859375px;
+  top: 5.550018310546875px;
+  border-radius: 0px;
 }
-.font1{
-    font-family: 'Satoshi';
+.font1 {
+  font-family: "Satoshi";
 }
-.c1{
-    display: inline-block;
+.c1 {
+  display: inline-block;
 }
-.inputstyle{
-font-family: 'Satoshi';
-font-size: 19px;
-font-weight: 500;
-line-height: 26px;
-letter-spacing: 0em;
-text-align: left;
+.inputstyle {
+  font-family: "Satoshi";
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
 }
-.inputareastyle{
- height: 105px;
-width: 1078px;
-left: 181px;
-top: 509px;
-border-radius: 5px;
-background: #F7F7F7;
+.inputareastyle {
+  height: 105px;
+  width: 1078px;
+  left: 181px;
+  top: 509px;
+  border-radius: 5px;
+  background: #f7f7f7;
 }
-.spacestyle{
-height: 45px;
-width: 400px;
-left: 262px;
-top: 235px;
-border-radius: 5px;
-background: #F7F7F7;
-border-radius: 5px;
+.spacestyle {
+  height: 45px;
+  width: 400px;
+  left: 262px;
+  top: 235px;
+  border-radius: 5px;
+  background: #f7f7f7;
+  border-radius: 5px;
 }
-.btnstyle{
-margin-left: 850px;
-height: 56px;
-width: 249px;
-left: 1001px;
-top: 840px;
-border-radius: 10px;
-padding: 15px 45px 15px 45px;
-/* #001EB9 */
-background: #001EB9;
-/* btn-shadow orange */
-box-shadow: 4px 4px 30px rgba(243, 172, 22, 0.2);
-border-radius: 10px;
+.btnstyle {
+  margin-left: 850px;
+  height: 56px;
+  width: 249px;
+  left: 1001px;
+  top: 840px;
+  border-radius: 10px;
+  padding: 15px 45px 15px 45px;
+  /* #001EB9 */
+  background: #001eb9;
+  /* btn-shadow orange */
+  box-shadow: 4px 4px 30px rgba(243, 172, 22, 0.2);
+  border-radius: 10px;
+}
+.sbar {
+  height: 54px;
+  width: 750px;
+  left: 0px;
+  top: 0px;
+  border-radius: 50px;
+  background: #f7f7f7;
+}
+.addbutton {
+  height: 56px;
+  width: 249px;
+  left: 939px;
+  top: 4px;
+  border-radius: 10px;
+  padding: 15px 45px 15px 45px;
+  background-color: #001eb9;
+  margin-left: 35%;
 }
 @media (max-width: 992px) {
-    .spacestyle {
-        height: 35px;
-        width: 300px;
-        left: 262px;
-        top: 235px;
-        border-radius: 5px;
-        background: #F7F7F7;
-        border-radius: 5px;
-    }
-    .inputareastyle{
-        height: 85px;
-width: 310px;
-left: 181px;
-top: 509px;
-border-radius: 5px;
-background: #F7F7F7; 
-    }
-    .btnstyle{
-        margin-left: 100px;
-        height: 46px;
-        width: 200px;
-        left: 1001px;
-        top: 840px;
-        border-radius: 10px;
-        padding: 15px 45px 15px 45px;
-        /* #001EB9 */
-        background: #001EB9;
-        /* btn-shadow orange */
-        box-shadow: 4px 4px 30px rgba(243, 172, 22, 0.2);
-        border-radius: 10px; 
-    }
+  .spacestyle {
+    height: 35px;
+    width: 300px;
+    left: 262px;
+    top: 235px;
+    border-radius: 5px;
+    background: #f7f7f7;
+    border-radius: 5px;
   }
+  .inputareastyle {
+    height: 85px;
+    width: 310px;
+    left: 181px;
+    top: 509px;
+    border-radius: 5px;
+    background: #f7f7f7;
+  }
+  .btnstyle {
+    margin-left: 100px;
+    height: 46px;
+    width: 200px;
+    left: 1001px;
+    top: 840px;
+    border-radius: 10px;
+    padding: 15px 45px 15px 45px;
+    /* #001EB9 */
+    background: #001eb9;
+    /* btn-shadow orange */
+    box-shadow: 4px 4px 30px rgba(243, 172, 22, 0.2);
+    border-radius: 10px;
+  }
+  .sbar {
+    height: 34px;
+    width: 200px;
+    left: 0px;
+    top: 0px;
+    border-radius: 10px;
+    background: #f7f7f7;
+  }
+  .addbutton {
+    height: 36px;
+    width: 109px;
+    left: 939px;
+    top: 4px;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+    background-color: #001eb9;
+    margin-left: 5%;
+  }
+  .frame {
+    display: none;
+  }
+}

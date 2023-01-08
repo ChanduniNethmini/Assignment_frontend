@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from "axios";
 import swal from "sweetalert";
 import "./myStyles.css";
+import Heading from '../shared/Heading';
+import frame from '../../img/frame.png'
 
 
 export default class ProductHome extends Component {
@@ -67,29 +69,43 @@ export default class ProductHome extends Component {
     return (
       <div>	<div>
       <div className="container">
-        <div className="col-md-6 mb-4">
+      <div className="topic c1">PRODUCTS</div>
+        <div className='row'>
+          <div className='col'>
+            <br/>
+          <div className="col-md-6 mb-4">
           <form class="form-inline">
             <i class="fas fa-search" aria-hidden="true"></i>
             <input
-              className="form-control form-control-sm ml-3 w-75"
+            style={{backgroundColor:"#F7F7F7"}}
+              className="form-control sbar"
               type="search"
-              placeholder="search"
+              placeholder="Search for products"
               name="searchQuery"
               onChange={this.handleSearchArea}
             ></input>
           </form>
         </div>
+          </div>
+          <div className='col'>
+            <br/>
+          <button type="button" class="btn btn-lg addbutton" ><a href='/add' style={{color:"white", textDecoration:'none'}}>New Product</a></button>
+          </div>
+          <div className='col'>
+          <img src={frame} style={{marginLeft: "30%"}} className='frame'/>
+          </div>
+        </div>
 
-        <table class="table table-striped" style={{ fontSize: "17px" }}>
+        <table class="table" style={{ fontSize: "17px" }}>
           <thead>
             <tr>
-            <th scope="col">NUMBER</th>
-              <th scope="col">SKU</th>
-              <th scope="col">IMAGE</th>
-              <th scope="col">PRODUCT NAME</th>
+            <th scope="col" style={{color:'#001EB9'}}>ID</th>
+              <th scope="col" style={{color:'#001EB9'}}>SKU</th>
+              <th scope="col" style={{color:'#001EB9'}}>IMAGE</th>
+              <th scope="col"style={{color:'#001EB9'}}>PRODUCT NAME</th>
               
-              <th scope="col">PRICE</th>
-              <th scope="col">action</th>
+              <th scope="col" style={{color:'#001EB9'}}>PRICE</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -97,12 +113,10 @@ export default class ProductHome extends Component {
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>
-                  <a href={`/product/post/${posts._id}`} style={{ textDecoration: "none" }}>
                     {posts.sku}
-                  </a>
                 </td>
                 
-                <td><img src={`/uploads/${posts.articleImage}`} width={160} alt='......'/></td>
+                <td><img src={`/uploads/${posts.articleImage}`} width={160} alt='......' style={{height:"100px", width:"100px"}}/></td>
                 <td>{posts.name}</td>
                 <td>{posts.price}</td>
 

@@ -6,7 +6,6 @@ import arrow from "../../img/arrow.svg";
 
 const AddProduct = () => {
 
-
   const [sku , setSku] = useState("");
   const [name , setName] = useState("");
   const [price , setPrice] = useState("");
@@ -51,7 +50,7 @@ setQty("");
       <div className="container font1" style={{marginLeft:'15%'}}>
         <div className="topic c1">PRODUCTS</div>&nbsp;
         <img src={arrow} className="image1 c1" />&nbsp;&nbsp;
-        <div className="subtopic c1">Add new product</div>
+        <div className="subtopic c1"  style={{color:'#001EB9'}}>Add new product</div>
      <span className='message'>{message}</span>
      <form onSubmit={changeOnClick} encType='multipart/form-data'>
         <div class="mb-3 inputstyle">
@@ -125,9 +124,17 @@ setQty("");
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="file" className="inputstyle">Product Image</label>
-          <h6 style={{color: '#162427'}}>JPEG, PNG, SVG or GIF (Maximum file size 50MB)</h6>
-          <input type="file" filename='articleImage' className="form-control-file" onChange={onChangeFile}/>
+          <div className="row">
+            <div className="col-2">
+            <label htmlFor="file" className="inputstyle">Product Image</label>
+          <h8 style={{color: '#162427'}}>JPEG, PNG, SVG or GIF <br/> (Maximum file size 50MB)</h8>
+            </div>
+            <div className="col">
+            <input type="file" filename='articleImage' className="form-control-file" onChange={onChangeFile}/>
+            </div>
+          </div>
+         
+         
         </div>
         <div>
         <button type="submit" class="btn btnstyle" style={{color:"white"}}>Add Product</button>

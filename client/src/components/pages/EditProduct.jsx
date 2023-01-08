@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import "./myStyles.css";
+import arrow from "../../img/arrow.svg";
 
 const EditProduct = (props) => {
     const [sku , setSku] = useState("");
@@ -15,15 +16,6 @@ const EditProduct = (props) => {
     const onChangeFile = (e) => {
       setFileName(e.target.files[0]);
     }
-  
-    // handleInputChange = (e) => {
-    //   const { name, value } = e.target;
-  
-    //   this.setState({
-    //     ...this.state,
-    //     [name]: value,
-    //   });
-    // };
   
     //save to db
     const changeOnClick = (e) => {
@@ -64,8 +56,8 @@ const EditProduct = (props) => {
   return (
     <div className="container font1" style={{marginLeft:'15%'}}>
     <div className="topic c1">PRODUCTS</div>&nbsp;
-   
-    <div className="subtopic c1">Edit Product</div>
+    <img src={arrow} className="image1 c1" />&nbsp;&nbsp;
+    <div className="subtopic c1" style={{color:'#001EB9'}}>Edit Product</div>
  <span className='message'>{message}</span>
  <form onSubmit={changeOnClick} encType='multipart/form-data'>
     <div class="mb-3 inputstyle">
@@ -144,7 +136,7 @@ const EditProduct = (props) => {
       <input type="file" filename='articleImage' className="form-control-file" onChange={onChangeFile}/>
     </div>
     <div>
-    <button type="submit" class="btn btnstyle" style={{color:"white"}}>Add Product</button>
+    <button type="submit" class="btn btnstyle" style={{color:"white"}}>Edit Product</button>
 </div>
 </form>
     
