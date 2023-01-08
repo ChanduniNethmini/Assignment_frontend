@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+/* You can add global styles to this file, and also import other style files */
+
+@font-face{
+  font-style: Satoshi;
+  src: url(assert/Satoshi_Complete/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.ttf) format('truetype');
+ }
+ 
+ .Satoshi {
+   font-family: Satoshi;
+ }
+ .font1{
+   font-family: 'Sathoshi';
+ }
