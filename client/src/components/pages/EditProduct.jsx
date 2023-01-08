@@ -1,65 +1,99 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import "./myStyles.css";
 import arrow from "../../img/arrow.svg";
 
-const EditProduct = (props) => {
-    const [sku , setSku] = useState("");
-    const [name , setName] = useState("");
-    const [price , setPrice] = useState("");
-    const [description , setDescription] = useState("");
-    const [qty , setQty] = useState("");
-    const [fileName, setFileName] = useState("");
-    const [message, setMessage] = useState("")
-  
-    const onChangeFile = (e) => {
-      setFileName(e.target.files[0]);
+export default class EditProduct extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sku:"",
+      name: "",
+      qty: "",
+      description: "",
     }
-  
-    //save to db
-    const changeOnClick = (e) => {
-      e.preventDefault();
-  const formData = new FormData();
-  
-  formData.append("sku", sku);
-  formData.append("name", name);
-  formData.append("price", price);
-  formData.append("description", description);
-  formData.append("qty", qty);
-  formData.append("articleImage", fileName);
-  
-  
-            axios
-            .put(`http://localhost:8000/product/update/${props.match.params.id}`,formData)
-          
-            .then((res) => setMessage(res.data))
-            
-            .catch((err) => {
-              console.log(err);
-            });
-              
-          
-    };
-    useEffect(() =>{
-        axios
-        .get(`http://localhost:8000/product/${props.match.params.id}`)
-        .then((res) =>[
-            setSku(res.data.sku),
-            setName(res.data.name),
-            setQty(res.data.qty),
-            setDescription(res.data.description),
-            setFileName(res.data.articleImage)
+  }
 
-        ])
+  handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    this.setState({
+      ...this.state,
+      [name]: value
     })
-  return (
+
+  }
+
+  onSubmit = (e) => {
+
+    e.preventDefault();
+    const id = this.props.match.params.id;
+
+    const { sku, name, qty, description } = this.state;
+
+    const data = {
+      sku: sku,
+      name: name,
+      qty: qty,
+      description: description,
+
+    }
+
+    console.log(data)
+    const re = /^[0-9\b]+$/;
+		if (name == "" || sku == "" ) {
+			swal("Please fill the form correctly", "Form values cannot be empty", "error");
+		} else if (name.length < 2) {
+			swal("User name invalid", "length should be greater than 2", "error");
+		} else {
+    axios.put(`http://localhost:8000/product/update/${id}`, data).then((res) => {
+      if (res.data.success) {
+
+        swal("Update Successful", "Update is recorder", "success");
+        this.setState(
+          {
+            sku:"",
+            name: "",
+            qty: "",
+            description: "",
+
+          }
+        )
+      }
+    })
+  }
+  }
+  componentDidMount() {
+
+    const id = this.props.match.params.id;
+
+
+    axios.get(`http://localhost:8000/product/${id}`).then((res) => {
+
+      if (res.data.success) {
+        this.setState({
+
+          sku: res.data.post.sku,
+          name: res.data.post.name,
+          qty: res.data.post.qty,
+          description: res.data.post.description,
+
+        });
+
+        console.log(this.state.post);
+      }
+    })
+
+  }
+  render() {
+    return (
     <div className="container font1" style={{marginLeft:'15%'}}>
     <div className="topic c1">PRODUCTS</div>&nbsp;
     <img src={arrow} className="image1 c1" />&nbsp;&nbsp;
     <div className="subtopic c1" style={{color:'#001EB9'}}>Edit Product</div>
- <span className='message'>{message}</span>
- <form onSubmit={changeOnClick} encType='multipart/form-data'>
+ 
+ <form>
     <div class="mb-3 inputstyle">
     <br/>
       <label for="exampleFormControlInput1" class="form-label">
@@ -70,9 +104,9 @@ const EditProduct = (props) => {
         class="form-control spacestyle"
         id="exampleFormControlInput1"
         name="sku"
-        value={sku}
+        value={this.state.sku}
         placeholder=""
-        onChange={(e) => setSku(e.target.value)}
+        onChange={this.handleInputChange}
         required
       />
     </div>
@@ -88,8 +122,8 @@ const EditProduct = (props) => {
         id="exampleFormControlInput1"
         placeholder=""
         name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={this.state.name}
+        onChange={this.handleInputChange}
         required
       />
     </div>
@@ -105,8 +139,8 @@ const EditProduct = (props) => {
         id="exampleFormControlInput1"
         placeholder=""
         name="qty"
-        value={qty}
-        onChange={(e) => setQty(e.target.value)}
+        value={this.state.qty}
+        onChange={this.handleInputChange}
         required
       />
     </div>  
@@ -125,22 +159,21 @@ const EditProduct = (props) => {
         rows="3"
         name="description"
         placeholder=""
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        value={this.state.description}
+        onChange={this.handleInputChange}
         required
       ></textarea>
     </div>
     <div className="form-group">
       <label htmlFor="file" className="inputstyle">Product Image</label>
       <h6 style={{color: '#162427'}}>JPEG, PNG, SVG or GIF (Maximum file size 50MB)</h6>
-      <input type="file" filename='articleImage' className="form-control-file" onChange={onChangeFile}/>
+      <input type="file" filename='articleImage' className="form-control-file"/>
     </div>
     <div>
-    <button type="submit" class="btn btnstyle" style={{color:"white"}}>Edit Product</button>
+    <button type="submit" class="btn btnstyle" style={{color:"white"}}  onClick={this.onSubmit}>Edit Product</button>
 </div>
 </form>
     
   </div>
   )
-}
-export default EditProduct;
+    }}

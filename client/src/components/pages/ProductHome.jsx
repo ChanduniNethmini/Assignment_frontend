@@ -4,6 +4,9 @@ import swal from "sweetalert";
 import "./myStyles.css";
 import Heading from '../shared/Heading';
 import frame from '../../img/frame.png'
+import edit from '../../img/edit-icon.svg';
+import del from '../../img/delete-icon.svg'
+import star from '../../img/star.svg'
 
 
 export default class ProductHome extends Component {
@@ -35,7 +38,7 @@ export default class ProductHome extends Component {
 			text: "Once deleted, you will not be able to recover this data again!",
 			icon: "warning",
 			buttons: true,
-			dangerMode: true,
+			dangerMode: false,
 		}).then((willDelete) => {
 			if (willDelete) {
 				axios.delete(`http://localhost:8000/product/delete/${id}`).then((res) => {
@@ -118,16 +121,20 @@ export default class ProductHome extends Component {
                 
                 <td><img src={`/uploads/${posts.articleImage}`} width={160} alt='......' style={{height:"100px", width:"100px"}}/></td>
                 <td>{posts.name}</td>
-                <td>{posts.price}</td>
+                <td>${posts.price}</td>
 
                 <td>
                   &nbsp;
-                  <a className="btn btn-warning" href={`/update/${posts._id}`}>
-                    <i className="fas fa-edit"></i>
+                  <a className="btn" href={`/update/${posts._id}`}>
+                    <img src={edit}/>
                   </a>
                   &nbsp;
-                  <a className="btn btn-danger" href="#" onClick={() => this.onDelete(posts._id)}>
-                    <i className="fas fa-trash-alt"></i>
+                  <a className="btn" href="#" onClick={() => this.onDelete(posts._id)}>
+                  <img src={del}/></a>
+                  &nbsp;
+                  <a className="btn" href="#">
+                  <img src={star}/>
+
                   </a>
                 </td>
               </tr>
