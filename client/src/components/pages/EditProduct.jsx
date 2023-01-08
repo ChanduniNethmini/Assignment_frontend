@@ -64,6 +64,7 @@ export default class EditProduct extends Component {
     })
   }
   }
+  //API binding
   componentDidMount() {
 
     const id = this.props.match.params.id;

@@ -21,6 +21,7 @@ export default class ProductHome extends Component {
 		this.retrievePosts();
 	}
 
+  //displaying exisiting posts
 	retrievePosts() {
 		axios.get("http://localhost:8000/products").then((res) => {
 			if (res.data.success) {
@@ -32,6 +33,7 @@ export default class ProductHome extends Component {
 		});
 	}
 
+  //calling delete function
 	onDelete = (id) => {
 		swal({
 			title: "Are you sure?",
@@ -52,6 +54,7 @@ export default class ProductHome extends Component {
 		});
 	};
 
+  //searching
 	filterData(posts, searchKey) {
 		const result = posts.filter(
 			(post) => post.name.toLowerCase().includes(searchKey) || post.sku.toLowerCase().includes(searchKey)

@@ -36,6 +36,8 @@ setPrice("");
 setDescription("");
 setQty("");
 
+//API binding
+
           axios
           .post("http://localhost:8000/product/save", formData)
           .then((res) => setMessage(res.data))
